@@ -1,6 +1,9 @@
 package com.example.randomuser.data.storage
 
 object DatabaseConstants {
+    // Database names
+    const val DATABASE_NAME = "random_user_db"
+
     // Table names
     const val TABLE_USERS = "users_table"
 
