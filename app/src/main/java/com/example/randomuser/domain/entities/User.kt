@@ -1,6 +1,7 @@
 package com.example.randomuser.domain.entities
 
 data class User(
+    val userId: String ,
     val gender : GenderEnum ,
     val nameFirst : String ,
     val nameLast : String ,

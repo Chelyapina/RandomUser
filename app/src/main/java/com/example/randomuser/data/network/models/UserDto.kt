@@ -5,6 +5,7 @@ data class UserDto(
     val name : NameDto ,
     val location : LocationDto ,
     val email : String ,
+    val login : LoginDto ,
     val dob : DateWithAgeDto ,
     val registered : DateWithAgeDto ,
     val phone : String ,

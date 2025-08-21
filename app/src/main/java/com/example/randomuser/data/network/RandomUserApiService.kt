@@ -17,7 +17,7 @@ interface RandomUserApiService {
         private const val API_ENDPOINT = "$BASE_PATH?$NO_INFO_PARAM"
 
         const val DEFAULT_RESULTS = 15
-        const val EXCLUDE_FIELDS = "login,cell,nat,id"
+        const val EXCLUDE_FIELDS = "cell,nat,id"
 
         const val PARAM_RESULTS = "results"
         const val PARAM_EXCLUDE = "exc"
