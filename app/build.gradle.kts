@@ -51,6 +51,9 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
 
+    // Dagger 2
+    implementation(libs.dagger)
+    ksp(libs.dagger.ksp)
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
