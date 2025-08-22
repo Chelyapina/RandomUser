@@ -16,4 +16,7 @@ interface UsersDao {
 
     @Query("DELETE FROM ${DatabaseConstants.TABLE_USERS}")
     suspend fun clearAllUsers()
+
+    @Query("SELECT * FROM ${DatabaseConstants.TABLE_USERS} WHERE ${DatabaseConstants.COLUMN_USER_ID} = :userId")
+    suspend fun getUserById(userId : String) : UserDb?
 }
