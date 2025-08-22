@@ -1,7 +1,7 @@
 package com.example.randomuser.di.modules
 
 import androidx.lifecycle.ViewModel
-import com.example.randomuser.UsersScreenViewModel
+import com.example.randomuser.presentation.users.UsersScreenViewModel
 import dagger.Binds
 import dagger.MapKey
 import dagger.Module

@@ -1,10 +1,10 @@
 package com.example.randomuser.di
 
 import android.app.Application
-import com.example.randomuser.MainActivity
 import com.example.randomuser.di.modules.AppModule
 import com.example.randomuser.di.modules.DataModule
 import com.example.randomuser.di.modules.ViewModelModule
+import com.example.randomuser.presentation.MainActivity
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
