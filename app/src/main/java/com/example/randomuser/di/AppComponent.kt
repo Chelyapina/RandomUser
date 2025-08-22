@@ -2,6 +2,7 @@ package com.example.randomuser.di
 
 import android.app.Application
 import com.example.randomuser.di.modules.AppModule
+import com.example.randomuser.di.modules.DaggerViewModelFactory
 import com.example.randomuser.di.modules.DataModule
 import com.example.randomuser.di.modules.ViewModelModule
 import com.example.randomuser.presentation.MainActivity
@@ -19,6 +20,7 @@ import javax.inject.Singleton
 )
 interface AppComponent {
     fun inject(activity : MainActivity)
+    fun getViewModelFactory() : DaggerViewModelFactory
 
     @Component.Factory
     interface Factory {
