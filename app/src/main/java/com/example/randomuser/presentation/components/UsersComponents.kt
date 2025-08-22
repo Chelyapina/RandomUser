@@ -38,7 +38,7 @@ fun UserList(
             UserItem(
                 user = user ,
                 modifier = Modifier.fillMaxWidth() ,
-                onClick = { onUserClick }
+                onClick = { onUserClick(user.userId) }
             )
         }
     }
