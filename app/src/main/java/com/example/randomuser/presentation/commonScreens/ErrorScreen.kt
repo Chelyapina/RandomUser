@@ -15,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.example.randomuser.R
 import com.example.randomuser.domain.util.ErrorType
-import com.example.randomuser.presentation.DesignConstants
+import com.example.randomuser.presentation.utils.DesignConstants
 import com.example.randomuser.presentation.users.UserUi
 
 @Composable

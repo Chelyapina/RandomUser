@@ -1,5 +1,6 @@
 package com.example.randomuser.presentation.users
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,9 +21,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import com.example.randomuser.presentation.DesignConstants
 import com.example.randomuser.presentation.commonComponents.TextWithIcon
+import com.example.randomuser.presentation.commonComponents.UserImage
+import com.example.randomuser.presentation.utils.DesignConstants
+import com.example.randomuser.presentation.utils.toGenderColors
 
 @Composable
 fun UserList(
@@ -47,17 +49,33 @@ private fun UserItem(
     modifier : Modifier = Modifier ,
     onClick : () -> Unit
 ) {
+    val genderColors = user.gender.toGenderColors()
+
     Card(
         modifier = modifier
-            .padding(DesignConstants.ITEM_PADDING) ,
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp) ,
+            .padding(DesignConstants.MEDIUM_PADDING)
+            .border(
+                width = DesignConstants.BORDER_SIZE ,
+                color = genderColors.border ,
+                shape = MaterialTheme.shapes.medium
+            ) ,
+        colors = CardDefaults.cardColors(
+            containerColor = genderColors.background
+        ) ,
         onClick = onClick
     ) {
         Row(
             modifier = Modifier.padding(DesignConstants.CARD_PADDING) ,
             verticalAlignment = Alignment.CenterVertically
         ) {
+            UserImage(
+                user.picture ,
+                genderColors.border ,
+                size = DesignConstants.USER_LIST_IMAGE_SIZE
+            )
+
             Spacer(Modifier.width(DesignConstants.MEDIUM_PADDING))
+
             UserInfo(user)
         }
     }

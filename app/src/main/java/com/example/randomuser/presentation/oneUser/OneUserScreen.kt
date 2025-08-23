@@ -3,6 +3,7 @@ package com.example.randomuser.presentation.oneUser
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -18,9 +19,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.randomuser.R
-import com.example.randomuser.presentation.DesignConstants
 import com.example.randomuser.presentation.commonScreens.LoadingScreen
 import com.example.randomuser.presentation.oneUser.components.OneUserContent
+import com.example.randomuser.presentation.utils.DesignConstants
 
 @Composable
 fun OneUserScreen(
@@ -32,6 +33,8 @@ fun OneUserScreen(
     Scaffold(
         topBar = {
             TopAppBar(
+                modifier = Modifier
+                    .statusBarsPadding() ,
                 backgroundColor = MaterialTheme.colorScheme.surface ,
                 contentColor = MaterialTheme.colorScheme.onSurface ,
                 elevation = DesignConstants.ITEM_PADDING ,
