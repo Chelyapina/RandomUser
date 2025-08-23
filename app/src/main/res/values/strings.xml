@@ -22,4 +22,7 @@
     <string name="phone">Phone</string>
     <string name="address">Address</string>
 
+    // images
+    <string name="user_image_error">User image error</string>
+    <string name="user_image">User image</string>
 </resources>

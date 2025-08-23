@@ -1,5 +1,6 @@
 package com.example.randomuser.presentation.oneUser.components
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,9 +24,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.example.randomuser.R
-import com.example.randomuser.presentation.DesignConstants
-import com.example.randomuser.presentation.DesignConstants.THICKNESS_SIZE
+import com.example.randomuser.presentation.commonComponents.UserImage
 import com.example.randomuser.presentation.oneUser.OneUserUi
+import com.example.randomuser.presentation.utils.DesignConstants
+import com.example.randomuser.presentation.utils.DesignConstants.THICKNESS_SIZE
+import com.example.randomuser.presentation.utils.GenderColors
+import com.example.randomuser.presentation.utils.toGenderColors
 
 @Composable
 internal fun OneUserContent(
@@ -35,28 +39,40 @@ internal fun OneUserContent(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .padding(DesignConstants.ITEM_PADDING)
+            .padding(DesignConstants.MEDIUM_PADDING)
             .verticalScroll(rememberScrollState()) ,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        val genderColors = user.gender.toGenderColors()
 
-        ImageInfoCard(user)
-
-        Spacer(modifier = Modifier.height(DesignConstants.LARGE_PADDING))
-
-        UserInfoCard(user)
+        ImageInfoCard(user , genderColors)
 
         Spacer(modifier = Modifier.height(DesignConstants.LARGE_PADDING))
 
-        ContactInfoCard(user)
+        UserInfoCard(user , genderColors)
+
+        Spacer(modifier = Modifier.height(DesignConstants.LARGE_PADDING))
+
+        ContactInfoCard(user , genderColors)
     }
 }
 
 @Composable
-private fun ImageInfoCard(user : OneUserUi) {
+private fun ImageInfoCard(
+    user : OneUserUi ,
+    genderColors : GenderColors
+) {
     Card(
-        modifier = Modifier.fillMaxWidth() ,
-        elevation = CardDefaults.cardElevation(defaultElevation = DesignConstants.ITEM_PADDING)
+        modifier = Modifier
+            .fillMaxWidth()
+            .border(
+                width = DesignConstants.BORDER_SIZE ,
+                color = genderColors.border ,
+                shape = MaterialTheme.shapes.medium
+            ) ,
+        colors = CardDefaults.cardColors(
+            containerColor = genderColors.background
+        ) ,
     )
     {
         Column(
@@ -65,6 +81,12 @@ private fun ImageInfoCard(user : OneUserUi) {
                 .padding(DesignConstants.LARGE_PADDING) ,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            UserImage(
+                user.picture ,
+                genderColors.border ,
+                size = DesignConstants.ONE_USER_IMAGE_SIZE
+            )
+
             Spacer(modifier = Modifier.height(DesignConstants.LARGE_PADDING))
 
             Text(
@@ -77,10 +99,21 @@ private fun ImageInfoCard(user : OneUserUi) {
 }
 
 @Composable
-private fun UserInfoCard(user : OneUserUi) {
+private fun UserInfoCard(
+    user : OneUserUi ,
+    genderColors : GenderColors
+) {
     Card(
-        modifier = Modifier.fillMaxWidth() ,
-        elevation = CardDefaults.cardElevation(defaultElevation = DesignConstants.ITEM_PADDING)
+        modifier = Modifier
+            .fillMaxWidth()
+            .border(
+                width = DesignConstants.BORDER_SIZE ,
+                color = genderColors.border ,
+                shape = MaterialTheme.shapes.medium
+            ) ,
+        colors = CardDefaults.cardColors(
+            containerColor = genderColors.background
+        ) ,
     ) {
         Column(
             modifier = Modifier.padding(DesignConstants.MEDIUM_PADDING)
@@ -92,6 +125,7 @@ private fun UserInfoCard(user : OneUserUi) {
             HorizontalDivider(
                 modifier = Modifier.padding(vertical = DesignConstants.ITEM_PADDING) ,
                 thickness = THICKNESS_SIZE ,
+                color = genderColors.border
             )
 
             DateDetailItem(
@@ -104,10 +138,21 @@ private fun UserInfoCard(user : OneUserUi) {
 }
 
 @Composable
-private fun ContactInfoCard(user : OneUserUi) {
+private fun ContactInfoCard(
+    user : OneUserUi ,
+    genderColors : GenderColors
+) {
     Card(
-        modifier = Modifier.fillMaxWidth() ,
-        elevation = CardDefaults.cardElevation(defaultElevation = DesignConstants.ITEM_PADDING)
+        modifier = Modifier
+            .fillMaxWidth()
+            .border(
+                width = DesignConstants.BORDER_SIZE ,
+                color = genderColors.border ,
+                shape = MaterialTheme.shapes.medium
+            ) ,
+        colors = CardDefaults.cardColors(
+            containerColor = genderColors.background
+        ) ,
     ) {
         Column(
             modifier = Modifier.padding(DesignConstants.MEDIUM_PADDING)
@@ -124,6 +169,7 @@ private fun ContactInfoCard(user : OneUserUi) {
             HorizontalDivider(
                 modifier = Modifier.padding(vertical = DesignConstants.ITEM_PADDING) ,
                 thickness = THICKNESS_SIZE ,
+                color = genderColors.border
             )
 
             ClickableDetailItem(
@@ -136,6 +182,7 @@ private fun ContactInfoCard(user : OneUserUi) {
             HorizontalDivider(
                 modifier = Modifier.padding(vertical = DesignConstants.ITEM_PADDING) ,
                 thickness = THICKNESS_SIZE ,
+                color = genderColors.border
             )
 
             ClickableDetailItem(

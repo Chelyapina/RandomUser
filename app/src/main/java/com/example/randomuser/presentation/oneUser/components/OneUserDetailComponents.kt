@@ -13,8 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import com.example.randomuser.presentation.DesignConstants
 import com.example.randomuser.presentation.commonComponents.TextWithIcon
+import com.example.randomuser.presentation.utils.DesignConstants
 
 @Composable
 fun ClickableDetailItem(
