@@ -67,6 +67,8 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     // Compose material
     implementation(libs.androidx.compose.material)
+    // Сoil
+    implementation(libs.coil.compose)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
