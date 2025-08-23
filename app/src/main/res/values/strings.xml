@@ -11,6 +11,7 @@
     // buttons
     <string name="retry">Retry</string>
     <string name="back">Back</string>
+    <string name="ok">Ок</string>
 
     // labels
     <string name="user_details">User Details</string>
@@ -25,4 +26,20 @@
     // images
     <string name="user_image_error">User image error</string>
     <string name="user_image">User image</string>
+
+    // intents
+    <string name="no_email_app_title">Email App Not Found</string>
+    <string name="no_email_app_message">No email application is installed on your device.</string>
+
+    <string name="no_phone_app_title">Phone App Not Found</string>
+    <string name="no_phone_app_message">No phone application is installed on your device.</string>
+
+    <string name="no_maps_app_title">Maps App Not Found</string>
+    <string name="no_maps_app_message">No maps application is installed on your device.</string>
+
+    <string name="no_app_title">Application Not Available</string>
+    <string name="no_app_message">No application is available to handle this action.</string>
+
+    <string name="error_title">Error</string>
+    <string name="general_error_message">An error occurred while trying to perform this action.</string>
 </resources>
