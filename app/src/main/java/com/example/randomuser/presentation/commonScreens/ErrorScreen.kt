@@ -1,4 +1,4 @@
-package com.example.randomuser.presentation.screens
+package com.example.randomuser.presentation.commonScreens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

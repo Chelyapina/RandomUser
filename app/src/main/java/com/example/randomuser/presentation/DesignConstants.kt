@@ -9,4 +9,5 @@ object DesignConstants {
     val CARD_PADDING = 12.dp
     val ITEM_PADDING = 4.dp
     val ICON_SIZE = 24.dp
+    val THICKNESS_SIZE = 1.dp
 }
