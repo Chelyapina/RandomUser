@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.example.randomuser.R
 import com.example.randomuser.presentation.commonScreens.LoadingScreen
+import com.example.randomuser.presentation.oneUser.components.ErrorDialog
 import com.example.randomuser.presentation.oneUser.components.OneUserContent
 import com.example.randomuser.presentation.utils.DesignConstants
 
@@ -29,6 +30,7 @@ fun OneUserScreen(
     onBack : () -> Unit
 ) {
     val userState by viewModel.userState.collectAsState()
+    val dialogState by viewModel.dialogState.collectAsState()
 
     Scaffold(
         topBar = {
@@ -56,12 +58,21 @@ fun OneUserScreen(
             )
         }
     ) { padding ->
+        ErrorDialog(
+            dialogState = dialogState ,
+            onDismiss = { viewModel.onDialogDismiss() }
+        )
         if (userState.isLoading) {
             LoadingScreen()
         } else if (userState.user != null) {
             OneUserContent(
                 user = userState.user!! ,
-                modifier = Modifier.padding(padding)
+                modifier = Modifier.padding(padding) ,
+                onEmailClick = { email -> viewModel.onEmailClick(email) } ,
+                onPhoneClick = { phone -> viewModel.onPhoneClick(phone) } ,
+                onCoordinatesClick = { lat , long ->
+                    viewModel.onCoordinatesClick(lat , long)
+                }
             )
         } else {
             Box(
