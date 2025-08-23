@@ -7,8 +7,11 @@ import com.example.randomuser.domain.usecases.GetUsersUseCase
 import com.example.randomuser.domain.usecases.RefreshUsersUseCase
 import com.example.randomuser.domain.util.ErrorType
 import com.example.randomuser.domain.util.Result
+import com.example.randomuser.presentation.navigation.NavigationEvent
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,6 +22,9 @@ class UsersScreenViewModel @Inject constructor(
 ) : ViewModel() {
     private val _state = MutableStateFlow<UsersState>(UsersState.Loading)
     val state : StateFlow<UsersState> = _state
+
+    private val _navigationEvents = Channel<NavigationEvent>()
+    val navigationEvents = _navigationEvents.receiveAsFlow()
 
     private var cachedUsers : List<UserUi> = emptyList()
     private var isLoading = false
@@ -70,6 +76,12 @@ class UsersScreenViewModel @Inject constructor(
                 }
             }
             isLoading = false
+        }
+    }
+
+    fun onUserClick(userId : String) {
+        viewModelScope.launch {
+            _navigationEvents.send(NavigationEvent.NavigateToOneUser(userId))
         }
     }
 

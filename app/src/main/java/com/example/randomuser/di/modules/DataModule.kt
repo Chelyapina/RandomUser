@@ -6,10 +6,12 @@ import com.example.randomuser.data.mappers.UserNetworkMapper
 import com.example.randomuser.data.network.RandomUserApiService
 import com.example.randomuser.data.storage.UsersDao
 import com.example.randomuser.data.usecases.GetLocalUsersUseCaseImpl
+import com.example.randomuser.data.usecases.GetUserByIdUseCaseImpl
 import com.example.randomuser.data.usecases.GetUsersUseCaseImpl
 import com.example.randomuser.data.usecases.RefreshUsersUseCaseImpl
 import com.example.randomuser.domain.UserRepository
 import com.example.randomuser.domain.usecases.GetLocalUsersUseCase
+import com.example.randomuser.domain.usecases.GetUserByIdUseCase
 import com.example.randomuser.domain.usecases.GetUsersUseCase
 import com.example.randomuser.domain.usecases.RefreshUsersUseCase
 import dagger.Module
@@ -53,5 +55,10 @@ class DataModule {
     @Provides
     fun provideGetLocalUsersUseCase(repository : UserRepository) : GetLocalUsersUseCase {
         return GetLocalUsersUseCaseImpl(repository)
+    }
+
+    @Provides
+    fun provideGetUserByIdUseCase(repository : UserRepository) : GetUserByIdUseCase {
+        return GetUserByIdUseCaseImpl(repository)
     }
 }

@@ -81,4 +81,8 @@ class UserRepositoryImplementation @Inject constructor(
             Result.Error(ErrorType.UNKNOWN_ERROR)
         }
     }
+
+    override suspend fun getUserById(userId : String) : User? {
+        return usersDao.getUserById(userId)?.let { userDbMapper.mapFromDb(it) }
+    }
 }

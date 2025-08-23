@@ -65,6 +65,8 @@ dependencies {
     ksp(libs.room.compiler)
     // Compose navigation
     implementation(libs.androidx.navigation.compose)
+    // Compose material
+    implementation(libs.androidx.compose.material)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

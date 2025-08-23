@@ -7,4 +7,5 @@ interface UserRepository {
     suspend fun getUsers() : Result<List<User>>
     suspend fun refreshUsers() : Result<List<User>>
     suspend fun getLocalUsers() : Result<List<User>>
+    suspend fun getUserById(userId: String): User?
 }

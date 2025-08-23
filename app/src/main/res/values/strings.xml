@@ -5,8 +5,21 @@
     <string name="error_no_internet">No internet connection</string>
     <string name="error_server">Server error</string>
     <string name="error_unknown">Unknown error occurred</string>
+    <string name="use_local_data">Use local data</string>
+    <string name="user_not_found">User not found</string>
 
     // buttons
     <string name="retry">Retry</string>
-    <string name="use_local_data">Use local data</string>
+    <string name="back">Back</string>
+
+    // labels
+    <string name="user_details">User Details</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="contact_information">Contact Information</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="registered">Registered</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+
 </resources>

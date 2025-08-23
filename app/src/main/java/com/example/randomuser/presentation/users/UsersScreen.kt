@@ -12,9 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.example.randomuser.presentation.components.UserList
-import com.example.randomuser.presentation.screens.ErrorScreen
-import com.example.randomuser.presentation.screens.LoadingScreen
+import com.example.randomuser.presentation.commonScreens.ErrorScreen
+import com.example.randomuser.presentation.commonScreens.LoadingScreen
 
 @Composable
 fun UsersScreen(
